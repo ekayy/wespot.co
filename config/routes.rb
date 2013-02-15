@@ -1,4 +1,8 @@
 Wespot::Application.routes.draw do
+  root to: 'static_pages#home'
+
+  get "static_pages/help"
+
   devise_for :users, :path => 'accounts', path_names: {sign_in: "login", sign_out: "logout"}
 
   # The priority is based upon order of creation:
