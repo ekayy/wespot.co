@@ -12,6 +12,7 @@ describe User do
   it { should respond_to(:email) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:place) }
 
   describe "when email is not present" do
     before { @user.email = " " }

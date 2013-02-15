@@ -11,5 +11,9 @@ FactoryGirl.define do
    #    after(:create) {|user| user.add_role(:admin)}
    #  end
   end
+
+  factory :place do
+    name  "Restaurant"
+  end
 end
 
