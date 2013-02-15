@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'devise'
+gem 'pg'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -30,13 +31,10 @@ group :test do
 end
 group :development, :test do
   gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails'
+  gem 'rspec-rails', "2.4.0"
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'spork'
-end
-group :production do
-  gem 'pg', '0.12.2'
 end
 
 gem 'jquery-rails'
