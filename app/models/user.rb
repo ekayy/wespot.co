@@ -10,4 +10,11 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_one :place, dependent: :destroy
+  before_create :build_default_place
+
+  private
+  def build_default_place
+    build_place
+    true
+  end
 end
