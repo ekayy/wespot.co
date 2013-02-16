@@ -14,6 +14,8 @@ FactoryGirl.define do
 
   factory :place do
     name  "Restaurant"
+    instagram_tag "localmissioneatery"
+    user
   end
 end
 
