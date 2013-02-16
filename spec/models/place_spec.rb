@@ -11,6 +11,7 @@ describe Place do
   it { should respond_to(:user_id) }
   it { should respond_to(:user) }
   its(:user) { should == user }
+  it { should respond_to(:instagram_tag) }
 
   it { should be_valid }
 
