@@ -16,16 +16,12 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    begin
-      @instagram = Instagram.tag_recent_media(@place.instagram_tag)
-    rescue
-      @instagram = Instagram.tag_recent_media('wespot')
-    end
+    @instagram = Instagram.tag_recent_media(@place.instagram_tag) if @place.instagram_tag
   end
 
-  def widget
+  def embed
     @place = Place.find(params[:id])
-    @instagram = Instagram.tag_recent_media('localmissioneatery')
+    @instagram = Instagram.tag_recent_media(@place.instagram_tag) if @place.instagram_tag
     respond_to do |format|
       format.html {render :layout => false}
       format.js

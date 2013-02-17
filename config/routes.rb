@@ -5,7 +5,9 @@ Wespot::Application.routes.draw do
 
   devise_for :users, :path => 'accounts', path_names: {sign_in: "login", sign_out: "logout"}
 
-  resources :places
+  resources :places do
+    get :embed, on: :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
