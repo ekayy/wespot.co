@@ -23,6 +23,7 @@ describe "Authentication" do
       let(:user) { FactoryGirl.create(:user) }
       before { login user }
 
+      it { should have_link('Customize Page', href: edit_place_path(user)) }
       it { should have_link('Settings', href: edit_user_registration_path) }
       it { should have_link('Logout', href: destroy_user_session_path) }
       it { should_not have_link('Login', href: user_session_path) }
