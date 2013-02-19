@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 gem 'devise'
 gem 'pg'
 gem 'carrierwave'
+gem "mini_magick"
 gem 'instagram'
 
 # Bundle edge Rails instead:
