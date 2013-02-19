@@ -2,7 +2,8 @@
 <h2>Customize</h2>
 
 
-<%= form_for @place do |f| %>
+<%= form_for @place, :html => {:multipart => true} do |f| %>
+  <%= f.hidden_field :user_id %>
 
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
@@ -16,6 +17,10 @@
     <div class="controls">
       <%= f.text_field :instagram_tag %>
     </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.file_field :coverphoto %>
   </div>
 
 <div class="control-group">
