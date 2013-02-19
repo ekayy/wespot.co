@@ -58,3 +58,45 @@ p {
   // font-size: 15px;
   // font-weight:normal;
 }
+
+/* Isotope Grid */
+#grid {
+  width:100%;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.gridItem {
+  float: left;
+  padding: 10px;
+  width:200px;
+  margin: 0 7px 15px;
+  line-height: 1.5;
+  background:white;
+  box-shadow:  0 1px 3px rgba(34,25,25,0.4);
+  .caption {
+    color: #8c7e7e;
+    padding: 5px 0 0 5px;
+    width: 100%;
+  }
+  .chatbox {
+    border-top: 1px solid white;
+    border-bottom: 1px solid rgba(#000,.1);
+    padding: 5px 5px;
+    padding-left:10px;
+    // @include pie-clearfix;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:first-child {
+      color: #b29c9c;
+      b {
+        color: #8c7e7e;
+      }
+    }
+  }
+}
+
+/* embed iframe */
+#wespot {
+  width:100%;
+}

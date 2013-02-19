@@ -1,6 +1,19 @@
 <!-- embed view -->
+<link href="/assets/custom.css?body=1" media="all" rel="stylesheet" type="text/css">
+<script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery.isotope.min.js?body=1" type="text/javascript"></script>
+<script src="/assets/app.js?body=1" type="text/javascript"></script>
 
-<h2><%= @place.name %></h2>
+<div id="grid">
+  <%# cache "instagram#{Date.today}" do %>
+    <% for instagram in @instagram.data %>
+      <div class="gridItem">
+        <%= link_to image_tag(instagram.images.low_resolution.url), "#{instagram.images.standard_resolution.url}" %>
+        <div class="caption">
+          <%= instagram.caption.text %>
+        </div>
+      </div>
+    <% end %>
+  <%# end %>
+</div>
 
-
-test
