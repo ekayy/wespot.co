@@ -12,6 +12,8 @@ describe Place do
   it { should respond_to(:user) }
   its(:user) { should == user }
   it { should respond_to(:instagram_tag) }
+  it { should respond_to(:coverphoto) }
+  it { should respond_to(:remote_coverphoto_url) }
 
   it { should be_valid }
 

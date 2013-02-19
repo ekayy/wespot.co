@@ -4,6 +4,7 @@
 
 <%= form_for @place, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :coverphoto_cache %>
 
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
@@ -21,6 +22,13 @@
 
   <div class="control-group">
     <%= f.file_field :coverphoto %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :remote_coverphoto_url, "or image URL", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :remote_coverphoto_url %>
+    </div>
   </div>
 
 <div class="control-group">

@@ -1,5 +1,5 @@
 class Place < ActiveRecord::Base
-  attr_accessible :name, :instagram_tag, :coverphoto
+  attr_accessible :name, :instagram_tag, :coverphoto, :remote_coverphoto_url
   validates :user_id, presence: true
 
   belongs_to :user
