@@ -1,4 +1,48 @@
 <% provide(:title, @place.name) %>
-<h2><%= @place.name %></h2>
+
+<% content_for :nav do %>
+<div id="place-nav">
+  <div id="place-title">
+    <h1><%= @place.name %></h1>
+  </div>
+  <div id="place-links">
+    <ul>
+      <li><a href ="#" id="toggleGrid">Photo</a></li>
+      <li><a href ="#">Menu</a></li>
+      <li><a href ="#">Contact</a></li>
+    </ul>
+  </div>
+</div>
+<% end %>
+
+<div id="content">
+  <div class="item">
+    <a href="#">
+      <img src="http://3.bp.blogspot.com/-2nAmwxeinfk/UKCySCrZ_RI/AAAAAAAANYo/IN1YKIb_vdY/s1600/izakaya+bar+drinks.jpg" />
+    </a>
+    <div class="caption">
+      Happy Hour from 7 - 9. Try our specials.
+    </div>
+  </div>
+</div>
+
+<% content_for :fluid do %>
+<div id="grid" data-json-url="<%= place_url(:format => :json) %>" style="display:none;"></div>
+<% end %>
 
 <body style="<%= show_user_bg %>">
+
+<script id="grid-template" type="text/x-handlebars-template">
+
+  {{#each data}}
+    <div class="grid-item">
+      <a href="{{images.standard_resolution.url}}">
+        <img src="{{images.low_resolution.url}}" />
+      </a>
+    <div class="caption">
+      {{caption.text}}
+    </div>
+  </div>
+  {{/each}}
+
+</script>

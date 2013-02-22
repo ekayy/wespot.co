@@ -1,4 +1,4 @@
-document.getElementById('my-wespot').innerHTML = '<div style="height:1000px;"><iframe src=<%=escape_javascript(embed_place_url(@place)).html_safe %> id="wespot" frameborder="0" width="1000px" height="98%" ></iframe></div>';
+document.getElementById('my-wespot').innerHTML = '<div style="height:1000px;"><iframe src=<%=escape_javascript(embed_place_url(@place)).html_safe %> id="wespot" frameborder="0" width="1200px" height="98%" overflow="hidden" scrolling="no" ></iframe></div>';
 
 
 //"<%=escape_javascript(content_tag(:iframe, '', :src => embed_place_url(@place), :frameborder => '0', :id => 'wespot', :height => '1000', :width => "1000").html_safe)%>"

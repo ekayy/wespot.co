@@ -1,14 +1,44 @@
-$(function(){
-  var $container = $('#grid');
+jQuery(function($) {
+  'use strict';
 
-  $container.imagesLoaded(function () {
-    // $('#container').show();
-    // $('#loading').hide();
-    $container.isotope({
-      itemSelector : '.gridItem'
-    });
-  });
+  var App = {
+    init: function() {
+      this.cacheElements();
+      this.bindEvents();
+      this.render();
+    },
+    cacheElements: function() {
+      this.$grid = $('#grid');
+      this.$widgetGrid = $('#widgetGrid');
+      this.$container = $('.container');
+    },
+    bindEvents: function() {
+      // $('#on').on('click', this.create);
+      $('#toggleGrid').on('click', this.toggleGrid);
+    },
+    render: function() {
+      var url = this.$grid.data('json-url');
+      $.getJSON(url, this.toTemplate);
+    },
+    toTemplate: function(photos) {
+      var template = Handlebars.compile($('#grid-template').html()),
+        grid = $('#grid');
+      grid.html(template(photos)).isotope({
+        itemSelector : '.grid-item'
+      });
+    },
+    create: function(e) {
+      App.render();
+    },
+    toggleGrid: function() {
 
+      $('#grid').toggle().isotope('reLayout');
+    }
+  };
+
+  App.init();
+
+});
 
 
   // $container.infinitescroll({
@@ -28,4 +58,4 @@ $(function(){
   //     });
   //   }
   // );
-});
+// });

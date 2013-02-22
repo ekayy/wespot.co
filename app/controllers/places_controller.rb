@@ -17,6 +17,10 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @instagram = Instagram.tag_recent_media(@place.instagram_tag) if @place.instagram_tag
+    respond_to do |format|
+      format.html
+      format.json {render :json => @instagram}
+    end
   end
 
   def embed

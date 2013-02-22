@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Wespot | <%= yield(:title) %></title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,6 +10,8 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
+  <%= yield :nav %>
+  <%= yield :fluid %>
   <div class="container">
     <%= yield %>
   </div>
