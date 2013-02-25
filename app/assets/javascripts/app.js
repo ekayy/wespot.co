@@ -13,19 +13,19 @@ jQuery(function($) {
       this.$container = $('.container');
     },
     bindEvents: function() {
-      $('#content').draggable({
-        stop: function(event, ui) {
-          $.post("",
-            { top: ui.position["top"], left: ui.position["left"] },
-            function() {
-              //callback;
-            }
-          );
-        }
-      }).resizable({
-        minHeight: 150,
-        minWidth: 200
-      });
+      // $('#content').draggable({
+      //   stop: function(event, ui) {
+      //     $.post("",
+      //       { top: ui.position["top"], left: ui.position["left"] },
+      //       function() {
+      //         //callback;
+      //       }
+      //     );
+      //   }
+      // }).resizable({
+      //   minHeight: 150,
+      //   minWidth: 200
+      // });
       $('#toggleGrid').on('click', this.toggleGrid);
     },
     render: function() {
