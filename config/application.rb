@@ -69,5 +69,8 @@ module Wespot
       g.javascripts = false
       g.helper = false
     end
+
+    # heroku compatibility
+    config.assets.initialize_on_precompile = false
   end
 end
