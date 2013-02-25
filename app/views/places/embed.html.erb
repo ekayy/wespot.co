@@ -22,10 +22,10 @@ $(function(){
 
 <div id="widget-container">
 
-  <div id="widget-grid">
+  <div id="grid">
     <%# cache "instagram#{Date.today}" do %>
-      <% for instagram in @instagram.data %>
-        <div class="widget-grid-item">
+      <% for instagram in @instagram %>
+        <div class="grid-item">
           <%= link_to image_tag(instagram.images.low_resolution.url), "#{instagram.images.standard_resolution.url}" %>
           <div class="caption">
             <%= instagram.caption.text %>

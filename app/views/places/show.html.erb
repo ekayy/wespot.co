@@ -1,27 +1,62 @@
 <% provide(:title, @place.name) %>
 
+<body style="<%= show_user_bg %>">
+
 <% content_for :nav do %>
 <div id="place-nav">
   <div id="place-title">
-    <h1><%= @place.name %></h1>
+    <%= image_tag 'http://3.bp.blogspot.com/-2nAmwxeinfk/UKCySCrZ_RI/AAAAAAAANYo/IN1YKIb_vdY/s1600/izakaya+bar+drinks.jpg' %>
+    <h1><%# @place.name %>Izakaya Sozai</h1>
   </div>
   <div id="place-links">
-    <ul>
-      <li><a href ="#" id="toggleGrid">Photo</a></li>
-      <li><a href ="#">Menu</a></li>
-      <li><a href ="#">Contact</a></li>
+    <ul class="place-main">
+      <li><a href ="#" id="toggleGrid"><i class="icon-camera"></i> Photo</a></li>
+      <li><a href ="#"><i class="icon-book"></i> Menu</a></li>
+      <li><a href ="#"><i class="icon-map-marker"></i> Contact</a></li>
+    </ul>
+
+  <div style="padding:20px;">
+    <button class="btn btn-danger">Make Reservation</button>
+  </div>
+
+    <ul class="place-contact">
+      <li><a href ="#"><i class="icon-volume-up"></i> (408) 355-3586</a></li>
+      <li><a href ="#"><i class="icon-map-marker"></i> 1470 38th Ave,<br/> San Francisco, CA 94122</a></li>
+      <li><a href ="#"><i class="icon-play-circle"></i> Hours</a></li>
     </ul>
   </div>
 </div>
 <% end %>
 
 <div id="content">
-  <div class="item">
-    <a href="#">
-      <img src="http://3.bp.blogspot.com/-2nAmwxeinfk/UKCySCrZ_RI/AAAAAAAANYo/IN1YKIb_vdY/s1600/izakaya+bar+drinks.jpg" />
-    </a>
-    <div class="caption">
-      Happy Hour from 7 - 9. Try our specials.
+  <div class="dish">
+    <div class="item">
+      <a href="#">
+        <img src="http://s3.amazonaws.com/foodspotting-ec2/reviews/1861767/thumb_600.jpg?1339153958?1361765196" />
+      </a>
+      <div class="caption">
+        Bacon Wrapped Mochi
+      </div>
+    </div>
+  </div>
+  <div class="dish">
+    <div class="item">
+      <a href="#">
+        <img src="http://s3.amazonaws.com/foodspotting-ec2/reviews/885449/thumb_600.jpg?1316504356" />
+      </a>
+      <div class="caption">
+        Hamachi Carpaccio
+      </div>
+    </div>
+  </div>
+  <div class="dish">
+    <div class="item">
+      <a href="#">
+        <img src="http://s3.amazonaws.com/foodspotting-ec2/reviews/885432/thumb_600.jpg?1316503766" />
+      </a>
+      <div class="caption">
+        Tonkotsu Ramen
+      </div>
     </div>
   </div>
 </div>
@@ -30,19 +65,18 @@
 <div id="grid" data-json-url="<%= place_url(:format => :json) %>" style="display:none;"></div>
 <% end %>
 
-<body style="<%= show_user_bg %>">
-
 <script id="grid-template" type="text/x-handlebars-template">
 
-  {{#each data}}
+  {{#each this}}
     <div class="grid-item">
       <a href="{{images.standard_resolution.url}}">
         <img src="{{images.low_resolution.url}}" />
       </a>
-    <div class="caption">
-      {{caption.text}}
+      <div class="caption">
+        {{caption.text}}
+      </div>
     </div>
-  </div>
   {{/each}}
 
 </script>
+

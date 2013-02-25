@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.ui.draggable
+//= require jquery.ui.resizable
 //= require ../../../vendor/assets/javascripts/handlebars
 //= require ../../../vendor/assets/javascripts/jquery.isotope.min
 //= require_tree .
