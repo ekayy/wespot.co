@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226020041) do
-
-  create_table "dishes", :force => true do |t|
-    t.integer  "menu_id"
-    t.string   "name"
-    t.text     "description"
-    t.integer  "price"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130226013109) do
 
   create_table "menus", :force => true do |t|
     t.integer  "place_id"
