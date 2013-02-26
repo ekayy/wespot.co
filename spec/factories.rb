@@ -20,5 +20,11 @@ FactoryGirl.define do
     name  "Brunch"
     place
   end
+  factory :dish do
+    name  "Omelette"
+    description "Three Egg Omelet with the seasons best fresh ingredients"
+    price "9"
+    menu
+  end
 end
 

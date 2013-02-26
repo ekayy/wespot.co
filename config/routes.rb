@@ -1,4 +1,7 @@
 Wespot::Application.routes.draw do
+  resources :dishes
+
+
   root to: 'static_pages#home'
 
   get "static_pages/help"
