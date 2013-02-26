@@ -11,11 +11,14 @@ FactoryGirl.define do
    #    after(:create) {|user| user.add_role(:admin)}
    #  end
   end
-
   factory :place do
     name  "Restaurant"
     instagram_tag "localmissioneatery"
     user
+  end
+  factory :menu do
+    name  "Brunch"
+    place
   end
 end
 

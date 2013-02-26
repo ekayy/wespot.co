@@ -164,7 +164,7 @@ p {
   position:absolute;
   padding: 10px;
   top:20%;
-  left:30%;
+  left:400px;
   .dish {
     float: left;
     margin: 0 7px 15px;
@@ -197,5 +197,25 @@ p {
         }
       }
     }
+  }
+}
+
+.category {
+  margin-bottom:40px;
+  span {
+    background: #e8ecf1;
+    font-size: 1em;
+    color: #8c7e7e;
+    display: inline-block;
+    padding: 0px 35px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    position: relative;
+    top: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding:14px;
   }
 }
