@@ -3,6 +3,9 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+    @menu = @place.menus.build
+    # @menu_category = @menu.menu_categories
+    # @dish = @menu_category.dish
   end
 
   def update
