@@ -1,0 +1,15 @@
+
+<%= f.input :name, label: "Menu" %>
+<%= f.input :_destroy, :as => :boolean, :inline_label => 'Remove Menu', label: false %>
+
+<%= f.simple_fields_for :menu_categories do |m| %>
+  <%= m.input :name, label: "Menu Category" %>
+  <%= m.input :_destroy, :as => :boolean, :inline_label => 'Remove Category', label: false %>
+
+  <%= m.simple_fields_for :dishes do |d| %>
+    <%= d.input :name, label: "Dish" %>
+    <%= d.input :_destroy, :as => :boolean, :inline_label => 'Remove Dish', label: false %>
+
+  <% end %>
+
+<% end %>
