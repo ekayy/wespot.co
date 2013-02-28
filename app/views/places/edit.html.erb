@@ -5,11 +5,12 @@
 <%= simple_form_for @place, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field :coverphoto_cache %>
 
-  <%= f.input :name %>
-  <%= f.input :instagram_tag %>
+  <%= f.input :name, label: 'Restaurant Name' %>
+  <%# f.input :instagram_tag %>
 
   <div class="control-group">
-    <%= f.file_field :coverphoto %>
+    <%= f.label :coverphoto, "Cover Photo", :class => 'control-label' %>
+      <%= f.file_field :coverphoto %>
   </div>
 
   <div class="control-group">

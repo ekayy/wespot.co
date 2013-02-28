@@ -1,9 +1,10 @@
 class PlacesController < ApplicationController
   before_filter :authenticate_user!, only: ['new','create','edit','update']
+  # layout 'application', :except => [:show]
 
   def edit
     @place = Place.find(params[:id])
-    @menu = @place.menus.build
+    # @menu = @place.menus.build
     # @menu_category = @menu.menu_categories
     # @dish = @menu_category.dish
   end
@@ -18,10 +19,10 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find(params[:id])
-    if @place.instagram_tag.present?
-      @instagram = Instagram.tag_recent_media(@place.instagram_tag)
-    end
+    @place = Place.find_by_subdomain!(request.subdomain)
+    # if @place.instagram_tag.present?
+    #   @instagram = Instagram.tag_recent_media(@place.instagram_tag)
+    # end
     respond_to do |format|
       format.html
       format.json {render :json => @instagram}
