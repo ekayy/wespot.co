@@ -248,3 +248,11 @@ button {
   #place-title img { height: 200px;}
   // #content { display:none;}
 }
+
+/* Iphone5 */
+@media screen and (device-aspect-ratio: 40/71) {
+  body {padding: 0; background:black;}
+  #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0; }
+  #place-title img { height: 200px;}
+  // #content { display:none;}
+}
