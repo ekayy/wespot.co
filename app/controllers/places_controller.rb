@@ -19,7 +19,11 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find_by_subdomain!(request.subdomain)
+    if params[:id]
+      @place = Place.find(params[:id])
+    else
+      @place = Place.find_by_subdomain!(request.subdomain)
+    end
     # if @place.instagram_tag.present?
     #   @instagram = Instagram.tag_recent_media(@place.instagram_tag)
     # end
