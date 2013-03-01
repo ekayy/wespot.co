@@ -1,0 +1,20 @@
+<% content_for :fluid do %>
+  <% unless @instagram.blank? %>
+    <div id="grid" data-json-url="<%= place_url(:format => :json) %>" style="display:none;"></div>
+  <% end %>
+<% end %>
+
+<script id="grid-template" type="text/x-handlebars-template">
+
+  {{#each this}}
+    <div class="grid-item">
+      <a href="{{images.standard_resolution.url}}">
+        <img src="{{images.low_resolution.url}}" />
+      </a>
+      <div class="caption">
+        {{caption.text}}
+      </div>
+    </div>
+  {{/each}}
+
+</script>

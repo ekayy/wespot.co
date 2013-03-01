@@ -1,18 +1,9 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+
+
 .navbar {position: fixed;}
-/* Landscape phones and down */
-@media (max-width: 480px) {  }
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) {  }
-
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {  }
-
-/* Large desktop */
-@media (min-width: 1200px) {  }
 
 /* universal */
 
@@ -76,18 +67,18 @@ p {
 /* Place Navigation Menu */
 #place-nav {
   position: absolute;
-  max-width:200px;
+  width:200px;
   top:40px;
   left: 5%;
   background-color: #000;
   opacity: .98;
-  box-shadow:  0 1px 3px rgba(34,25,25,0.4);
+  box-shadow:  3px 3px 6px rgba(34, 25, 25, 0.6);
   padding: 40px 20px;
   #place-title {
     h1 {
       color:#fff;
       margin: 0;
-      text-align:left;
+      text-align:center;
       font-weight:500;
       font-size:30px;
       padding: 20px 10px;
@@ -168,10 +159,9 @@ p {
 /* Content container */
 #content {
   overflow:hidden;
-  position:absolute;
-  padding: 10px;
-  top:15%;
-  left:400px;
+  // position:absolute;
+  top:50px;
+  margin-left:400px;
   .dish {
     float: left;
     margin: 0 7px 15px;
@@ -211,7 +201,8 @@ p {
 }
 
 .category {
-  margin: 20px 0;
+  // clear:both;
+  // margin: 20px 0;
   span {
     background: #e8ecf1;
     font-size: 1em;
@@ -228,4 +219,32 @@ p {
     vertical-align: middle;
     padding:14px;
   }
+}
+
+/* Form */
+button {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #c83737;
+  border: none;
+  font-size: 18px;
+}
+
+
+/* Large desktop */
+@media (min-width: 1200px) {  }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {  }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {  }
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  body {padding: 0;}
+  #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0; }
+  #place-title img { height: 200px;}
+  // #content { display:none;}
 }
