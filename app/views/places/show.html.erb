@@ -1,11 +1,11 @@
 <% provide(:title, @place.name) %>
 
-<body style="<%= show_user_bg %>">
+<body style="<%# show_user_bg %>">
 
 <% content_for :nav do %>
   <%= render 'nav' %>
 
-
+<%# image_tag 'https://wespot.s3-us-west-1.amazonaws.com/uploads/place/coverphoto/1/Izakaya.jpg?AWSAccessKeyId=AKIAIGJ5KQKYM3ZIYAZQ&Signature=biGg3If2T1TnG05nQCekVqRAJT0%3D&Expires=1362428431' %>
 <script>
 $(function(){
   var $content = $('#content');
@@ -108,7 +108,12 @@ Please see sake/drinks menu for extensive list
 $25 min per person for parties of 6 or more plus 18% gratuity
 </div> -->
 
+
+  <div class="coverphoto" style="background:#fff;height:200px;"></div>
+
 <div id="content">
+
+
   <div class="category"><span>Chef's Picks</span></div>
   <div class="dish">
     <div class="item">

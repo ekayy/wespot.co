@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe DishesController do
+# describe DishesController do
 
-end
+# end

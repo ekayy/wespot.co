@@ -1,0 +1,9 @@
+<fieldset>
+  <%= f.input :name, label: 'Menu Category' %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+  <%= f.simple_fields_for :dishes do |builder| %>
+    <%= render 'dish_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Dish", f, :dishes %>
+</fieldset>

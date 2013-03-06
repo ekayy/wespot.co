@@ -1,0 +1,7 @@
+<h1>Menus</h1>
+
+<% @menus.each do |menu| %>
+    <h2><%= link_to menu.name, menu %></h2>
+<% end %>
+
+<p><%= link_to 'New menu', new_place_menu_path %></p>

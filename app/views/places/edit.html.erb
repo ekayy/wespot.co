@@ -20,10 +20,8 @@
     </div>
   </div>
 
-  <%= f.simple_fields_for :menus do |builder| %>
-    <%= render 'menu_fields', f: builder %>
-  <% end %>
-
   <%= f.button :submit, "Customize" %>
 
 <% end %>
+
+<%= link_to 'Add Menus', place_menus_path(@place, @menu) %>

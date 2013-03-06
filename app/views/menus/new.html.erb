@@ -1,0 +1,23 @@
+<% provide(:title, 'Customize Menu') %>
+<h2>Customize Menu</h2>
+
+<%= link_to 'Add Menu', new_place_menu_path %>
+<%# link_to 'Customize Menu', edit_place_menu_path(@menu) %>
+
+<%= simple_form_for @menu do |f| %>
+  <% if @menu.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, label: 'Menu Name' %>
+
+  <%= f.button :submit, "Customize" %>
+
+<% end %>

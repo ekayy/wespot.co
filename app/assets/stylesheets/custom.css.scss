@@ -1,7 +1,9 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-
+@viewport {
+  width: device-width;
+}
 
 .navbar {position: fixed;}
 
@@ -66,21 +68,19 @@ p {
 
 /* Place Navigation Menu */
 #place-nav {
-  position: absolute;
+  position: fixed;
   width:200px;
   top:40px;
-  left: 5%;
   background-color: #000;
   opacity: .98;
   box-shadow:  3px 3px 6px rgba(34, 25, 25, 0.6);
   padding: 40px 20px;
+  bottom:0;
   #place-title {
     h1 {
       color:#fff;
       margin: 0;
       text-align:center;
-      font-weight:500;
-      font-size:30px;
       padding: 20px 10px;
     }
   }
@@ -95,7 +95,7 @@ p {
         a {
           color:#fff;
           padding: 0 10px;
-          font-size: 20px;
+          font-size: 1.5em;
           width:60px;
         }
       }
@@ -160,8 +160,10 @@ p {
 #content {
   overflow:hidden;
   // position:absolute;
+  display:block;
   top:50px;
-  margin-left:400px;
+  margin-left:300px;
+  max-width:1550px;
   .dish {
     float: left;
     margin: 0 7px 15px;
@@ -250,7 +252,7 @@ button {
 }
 
 /* Iphone5 */
-@media screen and (device-aspect-ratio: 40/71) {
+@media only screen and (min-width: 560px) and (max-device-width: 1136px) {
   body {padding: 0; background:black;}
   #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0; }
   #place-title img { height: 200px;}
