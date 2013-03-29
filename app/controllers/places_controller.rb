@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_filter :authenticate_user!, only: ['new','create','edit','update']
+  before_filter :authenticate_user!, only: ['new','create','edit','update', 'admin']
   # layout :false, :only => [:show]
 
   def edit
@@ -23,10 +23,11 @@ class PlacesController < ApplicationController
       @place = Place.find(params[:id])
     else
       @place = Place.find_by_subdomain!(request.subdomain)
+      @instagram = Instagram.tag_recent_media(@place.instagram_tag)
     end
-    # if @place.instagram_tag.present?
-    #   @instagram = Instagram.tag_recent_media(@place.instagram_tag)
-    # end
+    if @place.instagram_tag.present?
+      @instagram = Instagram.tag_recent_media(@place.instagram_tag)
+    end
     respond_to do |format|
       format.html
       format.json {render :json => @instagram}

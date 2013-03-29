@@ -1,10 +1,31 @@
 <% provide(:title, 'Customize Menu') %>
-<h2>Customize Menu</h2>
 
-<%= link_to 'Add Menu', new_place_menu_path %>
+<%= render 'subnav' %>
+
 <%# link_to 'Customize Menu', edit_menu_path(@menu) %>
 
-<%= simple_form_for @menu do |f| %>
+<div class="row">
+<h1><%= @menu.name %></h1>
+
+
+<div class="span3">
+  <div class="panel">
+    <h3>Menu Sections</h3>
+    <table class="table table-striped">
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td style="width:75px;"><a href="#categoryModal<%=category.id%>" data-toggle="modal">Edit</a> |
+      <%= link_to 'Delete', category, method: :delete,  data: { confirm: "You sure?" } %></td>
+    </tr>
+    <tr>
+    <div id="categoryModal<%=category.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="editCategoryModalLabel">Edit Section</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for [@menu, category] do |f| %>
   <% if @menu.errors.any? %>
     <div class="error_messages">
       <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
@@ -16,13 +37,84 @@
     </div>
   <% end %>
 
-  <%= f.input :name, label: 'Menu Name' %>
+  <%= f.input :name, label: 'Menu Section' %>
 
-  <%= f.simple_fields_for :menu_categories, remote: true do |builder| %>
-    <%= render 'menu_category_fields', f: builder %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <%= f.button :submit, "Edit", class: "btn btn-primary" %>
+  </div>
   <% end %>
-  <%= link_to_add_fields "Add Menu Category", f, :menu_categories %>
+</div>
+</tr>
 
-  <%= f.button :submit, "Customize" %>
+    <% end %>
+  </table>
+    <%= simple_form_for [@menu, @menu_category] do |f| %>
+      <%= f.input :name, label: false %>
+      <%= f.button :submit, "Add Menu Section" %>
+    <% end %>
+  </div>
+</div>
 
-<% end %>
+<div class="span9">
+  <div class="panel">
+    <h3>Dishes</h3>
+
+    <% @categories.each do |category| %>
+    <table class="table table-striped">
+      <tr>
+        <th colspan="3"><strong><%= category.name %></strong></th>
+      </tr>
+
+      <% for dish in category.dishes %>
+      <tr>
+        <td><%= dish.name %></td>
+        <td style="width:15%;"><a href="#dishModal<%=dish.id%>" data-toggle="modal">Edit</a> |
+          <%= link_to 'Delete', category, method: :delete,  data: { confirm: "You sure?" } %></td>
+      </tr>
+      <tr>
+    <div id="dishModal<%=dish.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="editCategoryModalLabel">Edit Dish</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for [category, dish] do |f| %>
+  <% if @menu.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, label: 'Menu Dish' %>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <%= f.button :submit, "Edit", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
+</tr>
+      <% end %>
+    </table>
+
+      <%= simple_form_for([category, @dish], :html => {:class => 'form-inline'}) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :description, :input_html => { :rows => 3 } %>
+          <%= f.input :price %>
+          <%= f.button :submit, "Add Dish" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+</div>
+
+

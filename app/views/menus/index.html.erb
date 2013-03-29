@@ -1,7 +1,66 @@
-<h1>Menus</h1>
+<%= render 'subnav' %>
 
-<% @menus.each do |menu| %>
-    <h2><%= link_to menu.name, menu %></h2>
+<h1>Dashboard</h1>
+
+<ul class="nav nav-tabs">
+  <li><a href="#menus" data-toggle="tab">Menus</a></li>
+  <li><a href="#settings" data-toggle="tab">Settings</a></li>
+  <li><a href="#billing" data-toggle="tab">Billing</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="menus">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="span3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @menus.each do |menu| %>
+        <tr>
+          <td><%= link_to menu.name, edit_menu_path(menu) %></td>
+          <td>
+            <%= link_to 'View', menu_path(menu), class: 'btn' %>
+            <%= link_to 'Edit', edit_menu_path(menu), class: 'btn' %>
+            <%= link_to 'Delete', menu, method: :delete,  data: { confirm: "You sure?" }, class: 'btn' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <p><a href="#newMenuModal" role="button" class="btn btn-success" data-toggle="modal">Add menu</a></p>
+  </div>
+  <div class="tab-pane" id="settings">Change Instagram ID, Change Name, Change Cover Photo</div>
+  <div class="tab-pane" id="billing">Billing</div>
+</div>
+
+<div id="newMenuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newMenuModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="newMenuModalLabel">Add Menu</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for @menu do |f| %>
+  <% if @menu.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, label: 'Menu Name' %>
+
+  <%= f.button :submit, "Add Menu" %>
+
 <% end %>
-
-<p><%= link_to 'New menu', new_place_menu_path %></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>

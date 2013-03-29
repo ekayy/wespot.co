@@ -1,12 +1,13 @@
 <% provide(:title, 'Customize') %>
 <h2>Customize</h2>
 
+<%= render 'menus/subnav' %>
 
 <%= simple_form_for @place, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field :coverphoto_cache %>
 
   <%= f.input :name, label: 'Restaurant Name' %>
-  <%# f.input :instagram_tag %>
+  <%= f.input :instagram_tag %>
 
   <div class="control-group">
     <%= f.label :coverphoto, "Cover Photo", :class => 'control-label' %>
@@ -23,5 +24,3 @@
   <%= f.button :submit, "Customize" %>
 
 <% end %>
-
-<%= link_to 'Add Menus', place_menus_path(@place, @menu) %>

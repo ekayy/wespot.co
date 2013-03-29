@@ -15,4 +15,14 @@
 //= require bootstrap
 //= require ../../../vendor/assets/javascripts/handlebars
 //= require ../../../vendor/assets/javascripts/jquery.isotope.min
+//= require underscore
+//= require backbone
+//
+//= require .//wespot
+//
+//= require_tree ../templates/
+//= require_tree .//models
+//= require_tree .//collections
+//= require_tree .//views
+//= require_tree .//routers
 //= require_tree .

@@ -1,9 +1,9 @@
 class MenusController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: 'show'
 
   def new
     @place = current_user.place
-    @menu = @place.menus.build
+    @menu = @place.menus.new
   end
 
   def create
@@ -11,7 +11,7 @@ class MenusController < ApplicationController
     @menu = @place.menus.build(params[:menu])
     if @menu.save
       flash[:success] = "Menu created!"
-      redirect_to 'edit'
+      render 'edit'
     else
       render 'new'
     end
@@ -19,9 +19,10 @@ class MenusController < ApplicationController
 
   def edit
     @menu = Menu.find(params[:id])
+    @dish = Dish.new
     # @menu = @menu.menus.build
-    # @menu_category = @menu.menu_categories
-    # @dish = @menu_category.dish
+    @menu_category = MenuCategory.new
+    @categories = @menu.menu_categories.all
   end
 
   def update
@@ -37,7 +38,15 @@ class MenusController < ApplicationController
     @menu = Menu.find(params[:id])
   end
 
+# action for dashboard
   def index
     @menus = Menu.all
+    @menu = Menu.new
+  end
+
+  def destroy
+    Menu.find(params[:id]).destroy
+    flash[:success] = "Menu destroyed."
+    redirect_to menus_path
   end
 end

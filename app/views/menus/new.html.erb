@@ -1,8 +1,8 @@
 <% provide(:title, 'Customize Menu') %>
-<h2>Customize Menu</h2>
 
-<%= link_to 'Add Menu', new_place_menu_path %>
-<%# link_to 'Customize Menu', edit_place_menu_path(@menu) %>
+<%= render 'subnav' %>
+
+<h2>Customize Menu</h2>
 
 <%= simple_form_for @menu do |f| %>
   <% if @menu.errors.any? %>
@@ -18,6 +18,6 @@
 
   <%= f.input :name, label: 'Menu Name' %>
 
-  <%= f.button :submit, "Customize" %>
+  <%= f.button :submit, "Add Menu" %>
 
 <% end %>

@@ -48,8 +48,9 @@ jQuery(function($) {
     toTemplate: function(photos) {
       var template = Handlebars.compile($('#grid-template').html()),
         grid = $('#grid');
-      grid.html(template(photos)).isotope({
-        itemSelector : '.grid-item'
+      grid.html(template(photos)).imagesLoaded( function(){grid.isotope({
+          itemSelector : '.grid-item'
+        });
       });
     },
     create: function(e) {

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'devise'
 gem 'pg'
 gem 'carrierwave'
@@ -8,6 +8,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'instagram'
 gem 'simple_form'
+gem 'backbone-on-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,7 +24,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '1.2.3'
-  gem 'bootstrap-sass', '2.1'
+  gem 'bootstrap-sass', '~> 2.3.1.0'
 end
 
 group :test do

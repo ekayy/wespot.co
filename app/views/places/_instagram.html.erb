@@ -1,6 +1,6 @@
 <% content_for :fluid do %>
   <% unless @instagram.blank? %>
-    <div id="grid" data-json-url="<%= place_url(:format => :json) %>" style="display:none;"></div>
+    <div id="grid" data-json-url="<%= place_url(@place) %>"></div>
   <% end %>
 <% end %>
 

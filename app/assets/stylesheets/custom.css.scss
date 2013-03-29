@@ -5,13 +5,13 @@
   width: device-width;
 }
 
-.navbar {position: fixed;}
+// .navbar {position: fixed;}
 
 /* universal */
 
 body {
   font-family: 'Open Sans', sans-serif;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 section {
@@ -64,6 +64,10 @@ p {
 .control-group label {
   // font-size: 15px;
   // font-weight:normal;
+}
+
+.form-inline .text{
+  width: 300px;
 }
 
 /* Place Navigation Menu */
@@ -120,37 +124,35 @@ p {
 /* Isotope Grid */
 #grid {
   overflow:hidden;
-  position:relative;
-  padding: 10px;
   top:100px;
-  margin: 350px;
-}
-.grid-item {
-  float: left;
-  padding: 10px;
-  width:200px;
-  margin: 0 7px 15px;
-  line-height: 1.5;
-  background:white;
-  box-shadow:  0 1px 3px rgba(34,25,25,0.4);
-  .caption {
-    color: #8c7e7e;
-    padding: 5px 0 0 5px;
-    width: 100%;
-  }
-  .chatbox {
-    border-top: 1px solid white;
-    border-bottom: 1px solid rgba(#000,.1);
-    padding: 5px 5px;
-    padding-left:10px;
-    // @include pie-clearfix;
-    &:last-child {
-      border-bottom: none;
+  margin-left: 300px;
+  display:block;
+  .grid-item {
+    float: left;
+    padding: 10px;
+    width:200px;
+    margin: 0 7px 15px;
+    background:white;
+    box-shadow:  0 1px 3px rgba(34,25,25,0.4);
+    .caption {
+      color: #8c7e7e;
+      padding: 5px 0 0 5px;
+      width: 100%;
     }
-    &:first-child {
-      color: #b29c9c;
-      b {
-        color: #8c7e7e;
+    .chatbox {
+      border-top: 1px solid white;
+      border-bottom: 1px solid rgba(#000,.1);
+      padding: 5px 5px;
+      padding-left:10px;
+      // @include pie-clearfix;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:first-child {
+        color: #b29c9c;
+        b {
+          color: #8c7e7e;
+        }
       }
     }
   }
@@ -233,6 +235,20 @@ button {
   font-size: 18px;
 }
 
+/* Panel */
+.panel {
+  background: #f5f5f5;
+  border-color: #dfdfdf;
+  position: relative;
+  overflow: auto;
+  margin: 20px 0;
+  padding: 23px 10px 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 2.1em;
+}
 
 /* Large desktop */
 @media (min-width: 1200px) {  }
