@@ -1,0 +1,37 @@
+<% content_for :nav do %>
+  <%= render 'nav' %>
+
+<div class="wrapper">
+  <h1>Menus</h1>
+
+<ul class="nav nav-pills">
+  <% @menus.each do |menu| %>
+    <li><a href="#<%=menu.id%>" data-toggle="tab"><%= menu.name %></a></li>
+  <% end %>
+</ul>
+
+  <% @menus.each do |menu| %>
+    <% menu.menu_categories.each do |category| %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= category.name %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% category.dishes.each do |dish| %>
+        <tr>
+          <td><%= dish.name %><br/>
+            <em><%= dish.description %></em></td>
+          <td style="width:10%;"><%= number_to_currency(dish.price_in_dollars) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+<% end %>

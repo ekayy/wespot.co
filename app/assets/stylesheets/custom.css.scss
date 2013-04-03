@@ -14,6 +14,20 @@ body {
   padding-top: 40px;
 }
 
+.wrapper {
+  position:absolute;
+  left:300px;
+  right:5em;
+  max-width:700px;
+}
+
+#coverphoto {
+  float:left;
+  height:180px;
+  display:block;
+  overflow:visible;
+}
+
 section {
   overflow: auto;
 }
@@ -73,12 +87,13 @@ p {
 /* Place Navigation Menu */
 #place-nav {
   position: fixed;
-  width:200px;
+  width:250px;
   top:40px;
   background-color: #000;
   opacity: .98;
   box-shadow:  3px 3px 6px rgba(34, 25, 25, 0.6);
-  padding: 40px 20px;
+  // padding: 40px 20px;
+  padding-top:64px;
   bottom:0;
   #place-title {
     h1 {
@@ -97,14 +112,25 @@ p {
       li {
         padding: 5px 10px;
         a {
+          text-decoration: none;
+          text-align:center;
+          display:block;
+          border-bottom: 1px solid #333;
           color:#fff;
-          padding: 0 10px;
-          font-size: 1.5em;
-          width:60px;
+          position:relative;
+          padding: 12px 5px;
+          font-size: 1em;
+        }
+        a:hover {
+          color:#000;
+          background:#fff;
         }
       }
     }
-    .place-contact {
+  }
+  .place-info {
+    padding: 35px 42px 25px;
+    ul.place-contact {
       margin: 0;
       padding: 0;
       list-style: none;
@@ -114,7 +140,6 @@ p {
           color:#fff;
           font-size:14px;
           padding: 0 10px;
-          width:60px;
         }
       }
     }
@@ -122,16 +147,23 @@ p {
 }
 
 /* Isotope Grid */
-#grid {
+#main {
+  top: 20px;
   overflow:hidden;
-  top:100px;
-  margin-left: 300px;
-  display:block;
+  height:100%;
+  margin-left: 260px;
+  position:relative;
+#grid {
+  top: 20px;
+  float:left;
+  width:100%;
   .grid-item {
     float: left;
-    padding: 10px;
-    width:200px;
-    margin: 0 7px 15px;
+    padding: 1%;
+    // width:200px;
+    width:21.5%;
+    // margin: 0 7px 15px;
+    margin: .5%;
     background:white;
     box-shadow:  0 1px 3px rgba(34,25,25,0.4);
     .caption {
@@ -156,6 +188,7 @@ p {
       }
     }
   }
+}
 }
 
 /* Content container */

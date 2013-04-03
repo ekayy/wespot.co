@@ -2,20 +2,19 @@ Wespot::Application.routes.draw do
 
   devise_for :users, :path => 'accounts', path_names: {sign_in: "login", sign_out: "logout"}
 
-  match 'admin' => 'menus#index'
   resources :places do
     get :embed, on: :member
+    get :menu, on: :member
   end
   resources :menus do
-    resources :menu_categories do
-      resources :dishes
-    end
+    resources :menu_categories
   end
   resources :menu_categories do
     resources :dishes
   end
   constraints(Subdomain) do
     match '/' => 'places#show'
+    match '/menu' => 'places#menu'
   end
   root to: 'static_pages#home'
 

@@ -21,7 +21,7 @@
     <tr>
     <div id="categoryModal<%=category.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <a type="button" class="close" data-dismiss="modal" aria-hidden="true">×</a>
     <h3 id="editCategoryModalLabel">Edit Section</h3>
   </div>
   <div class="modal-body">
@@ -41,7 +41,7 @@
 
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
     <%= f.button :submit, "Edit", class: "btn btn-primary" %>
   </div>
   <% end %>
@@ -63,54 +63,85 @@
 
     <% @categories.each do |category| %>
     <table class="table table-striped">
+
       <tr>
-        <th colspan="3"><strong><%= category.name %></strong></th>
+        <th colspan="4"><strong><%= category.name %></strong>
+        </th>
       </tr>
 
-      <% for dish in category.dishes %>
+      <% category.dishes.each do |dish| %>
       <tr>
-        <td><%= dish.name %></td>
-        <td style="width:15%;"><a href="#dishModal<%=dish.id%>" data-toggle="modal">Edit</a> |
-          <%= link_to 'Delete', category, method: :delete,  data: { confirm: "You sure?" } %></td>
+        <td><%= dish.name %><br/>
+        <em><%= dish.description %></em></td>
+        <td style="width:10%;"><%= number_to_currency(dish.price_in_dollars) %></td>
+        <td style="width:75px;"><a href="#editDishModal<%=dish.id%>" data-toggle="modal">Edit</a> |
+          <%= link_to 'Delete', [category, dish], method: :delete,  data: { confirm: "You sure?" } %></td>
       </tr>
       <tr>
-    <div id="dishModal<%=dish.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="editCategoryModalLabel">Edit Dish</h3>
-  </div>
-  <div class="modal-body">
-    <%= simple_form_for [category, dish] do |f| %>
-  <% if @menu.errors.any? %>
-    <div class="error_messages">
-      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
-      <ul>
-      <% @menu.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= f.input :name, label: 'Menu Dish' %>
-
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <%= f.button :submit, "Edit", class: "btn btn-primary" %>
-  </div>
-  <% end %>
-</div>
-</tr>
-      <% end %>
-    </table>
-
-      <%= simple_form_for([category, @dish], :html => {:class => 'form-inline'}) do |f| %>
-          <%= f.input :name %>
+    <div id="editDishModal<%=dish.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editDishModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="editDishModalLabel">Edit Dish</h3>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [category, dish] do |f| %>
+          <% if @menu.errors.any? %>
+            <div class="error_messages">
+              <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+              <ul>
+              <% @menu.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.input :name, label: 'Menu Dish' %>
           <%= f.input :description, :input_html => { :rows => 3 } %>
-          <%= f.input :price %>
-          <%= f.button :submit, "Add Dish" %>
+          <%= f.input :price_in_dollars %>
+        </div>
+        <div class="modal-footer">
+          <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+          <%= f.button :submit, "Edit", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+    </tr>
       <% end %>
+  </table>
+
+  <a href="#newDishModal<%=category.id%>" class='btn' data-toggle="modal">Add Dish</a></td>
+
+  <div id="newDishModal<%=category.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newDishModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="newDishModalLabel">New Dish</h3>
+    </div>
+
+    <div class="modal-body">
+    <%= simple_form_for [category, @dish] do |f| %>
+      <% if @menu.errors.any? %>
+      <div class="error_messages">
+        <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+        <ul>
+        <% @menu.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <%= f.input :name %>
+      <%= f.input :description, :input_html => { :rows => 3 } %>
+      <%= f.input :price_in_dollars %>
+      </div>
+
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal" aria-hidden="true">Close</a>
+        <%= f.button :submit, "Add Dish", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
     <% end %>
   </div>
 </div>

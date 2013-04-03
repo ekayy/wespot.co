@@ -34,6 +34,11 @@ class PlacesController < ApplicationController
     end
   end
 
+  def menu
+    @place = Place.find(params[:id])
+    @menus = Menu.all
+  end
+
   def embed
     @place = Place.find(params[:id])
     @instagram = Instagram.tag_recent_media(@place.instagram_tag) if @place.instagram_tag

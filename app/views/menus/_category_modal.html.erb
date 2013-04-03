@@ -1,0 +1,27 @@
+<div id="categoryModal<%=category.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="editCategoryModalLabel">Edit Section</h3>
+  </div>
+  <div class="modal-body">
+    <%= simple_form_for [@menu, category] do |f| %>
+  <% if @menu.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, label: 'Menu Section' %>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <%= f.button :submit, "Edit", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>

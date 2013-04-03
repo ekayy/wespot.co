@@ -1,6 +1,11 @@
 <% content_for :fluid do %>
   <% unless @instagram.blank? %>
+  <div id="main">
+
+    <!-- <div id="coverphoto"></div> -->
+
     <div id="grid" data-json-url="<%= place_url(@place) %>"></div>
+  </div>
   <% end %>
 <% end %>
 
@@ -17,4 +22,10 @@
     </div>
   {{/each}}
 
+</script>
+
+<script>
+$(document).ready(function(){
+      $("#coverphoto").backstretch('<%= raw @place.coverphoto.url.to_s %>');
+    });
 </script>

@@ -1,0 +1,29 @@
+<div id="newDishModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newDishModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="newDishModalLabel">Edit Dish</h3>
+    </div>
+
+    <div class="modal-body">
+    <%= simple_form_for [category, @dish] do |f| %>
+      <% if @menu.errors.any? %>
+      <div class="error_messages">
+        <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+        <ul>
+        <% @menu.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+    <%= f.input :name %>
+    <%= f.input :description, :input_html => { :rows => 3 } %>
+    <%= f.input :price %>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <%= f.button :submit, "Add Dish", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>

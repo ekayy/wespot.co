@@ -47,11 +47,36 @@ jQuery(function($) {
     },
     toTemplate: function(photos) {
       var template = Handlebars.compile($('#grid-template').html()),
-        grid = $('#grid');
-      grid.html(template(photos)).imagesLoaded( function(){grid.isotope({
+        $grid = $('#grid');
+      $grid.html(template(photos)).imagesLoaded( function(){$grid.isotope({
+          resizable: false,
+          masonry: { columnWidth: $grid.width() / 4 },
           itemSelector : '.grid-item'
         });
       });
+      $(window).smartresize(function(){
+        $grid.isotope({
+          // update columnWidth to a percentage of container width
+          masonry: { columnWidth: $grid.width() / 4 }
+        });
+      });
+      // $grid.infinitescroll({
+      //   navSelector  : '.pagination',    // selector for the paged navigation
+      //   nextSelector : '.pagination a',  // selector for the NEXT link (to page 2)
+      //   itemSelector : '.grid-item',     // selector for all items you'll retrieve
+      //   extraScrollPx:50,
+      //   loading: {
+      //       img: 'http://i.imgur.com/qkKy8.gif',
+      //     }
+      //   },
+      //   // call Isotope as a callback
+      //   function(newElements) {
+      //     var $newElems = $(newElements);
+      //     $newElems.imagesLoaded(function(){
+      //       $grid.isotope('appended', $newElems );
+      //     });
+      //   }
+      // );
     },
     create: function(e) {
       App.render();
