@@ -14,7 +14,6 @@ Wespot::Application.routes.draw do
   end
   constraints(Subdomain) do
     match '/' => 'places#show'
-    match '/menu' => 'places#menu'
   end
   root to: 'static_pages#home'
 

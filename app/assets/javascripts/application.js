@@ -16,8 +16,6 @@
 //= require ../../../vendor/assets/javascripts/handlebars
 //= require ../../../vendor/assets/javascripts/jquery.isotope.min
 //= require ../../../vendor/assets/javascripts/jquery.backstretch.min
-//= require ../../../vendor/assets/javascripts/jquery.backstretch.min
-//= require ../../../vendor/assets/javascripts/jquery.fancybox.pack
 //= require underscore
 //= require backbone
 //

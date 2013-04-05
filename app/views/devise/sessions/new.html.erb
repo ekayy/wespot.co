@@ -4,6 +4,14 @@
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal' }) do |f| %>
 
+ <div id="error_explanation">
+      <ul>
+        <% flash.each do |name, msg| %>
+          <li><%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %></li>
+        <% end %>
+      </ul>
+  </div>
+
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">

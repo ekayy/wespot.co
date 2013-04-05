@@ -5,7 +5,7 @@
   width: device-width;
 }
 
-// .navbar {position: fixed;}
+.navbarfix {position: fixed;}
 
 /* universal */
 
@@ -83,6 +83,19 @@ p {
 .form-inline .text{
   width: 300px;
 }
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+// .field_with_errors {
+//   @extend .control-group;
+//   @extend .error;
+// }
 
 /* Place Navigation Menu */
 #place-nav {

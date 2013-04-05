@@ -65,13 +65,13 @@ Wespot::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address    => "smtp.sendgrid.net",
-    :port       => 25,
-    :domain     => "wespot.co",
-    :authentication => :plain,
-    :user_name  => 'webservices@itu.edu',
-    :password   => '45ty67hdb80y344g7g'
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :address    => "smtp.sendgrid.net",
+  #   :port       => 25,
+  #   :domain     => "wespot.co",
+  #   :authentication => :plain,
+  #   :user_name  => 'webservices@itu.edu',
+  #   :password   => '45ty67hdb80y344g7g'
+  # }
 end
