@@ -1,5 +1,5 @@
 class Dish < ActiveRecord::Base
-  attr_accessible :name, :description, :price_in_dollars
+  attr_accessible :name, :description, :price_in_dollars, :price
   validates :menu_category_id, presence: true
 
   belongs_to :menu_category

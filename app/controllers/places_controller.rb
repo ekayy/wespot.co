@@ -1,12 +1,11 @@
 class PlacesController < ApplicationController
   before_filter :authenticate_user!, only: ['new','create','edit','update', 'admin']
+  caches_page :show, :if => Proc.new { |c| c.request.format.json? }
   # layout :false, :only => [:show]
 
   def edit
-    @place = Place.find(params[:id])
-    # @menu = @place.menus.build
-    # @menu_category = @menu.menu_categories
-    # @dish = @menu_category.dish
+    @user = current_user
+    @place = current_user.place
   end
 
   def update

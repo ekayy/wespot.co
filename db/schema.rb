@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227224712) do
+ActiveRecord::Schema.define(:version => 20130409110517) do
+
+  create_table "business_hours", :force => true do |t|
+    t.integer "place_id"
+    t.integer "day"
+    t.time    "open_time"
+    t.time    "close_time"
+  end
 
   create_table "dishes", :force => true do |t|
     t.integer  "menu_category_id"

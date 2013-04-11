@@ -9,8 +9,8 @@
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
+<%= render 'layouts/header' %>
 <body>
-  <%= render 'layouts/header' %>
   <%= yield :nav %>
   <%= yield :fluid %>
   <div class="container">

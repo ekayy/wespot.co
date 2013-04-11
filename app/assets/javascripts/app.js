@@ -24,6 +24,9 @@ jQuery(function($) {
       this.$grid = $('#grid');
       this.$widgetGrid = $('#widgetGrid');
       this.$container = $('.container');
+      $.ajaxSetup({
+        cache: false
+      });
     },
     bindEvents: function() {
       // $('#content').draggable({
@@ -47,17 +50,19 @@ jQuery(function($) {
     },
     toTemplate: function(photos) {
       var template = Handlebars.compile($('#grid-template').html()),
-        $grid = $('#grid');
-      $grid.html(template(photos)).imagesLoaded( function(){$grid.isotope({
+        $grid = $('#grid'),
+        columns;
+
+      $grid.html(template(photos)).imagesLoaded( function(){
+        $grid.isotope({
           resizable: false,
-          masonry: { columnWidth: $grid.width() / 4 },
+          masonry: { columnWidth: $grid.width() / columns },
           itemSelector : '.grid-item'
         });
       });
       $(window).smartresize(function(){
         $grid.isotope({
-          // update columnWidth to a percentage of container width
-          masonry: { columnWidth: $grid.width() / 4 }
+          masonry: { columnWidth: $grid.width() / columns }
         });
       });
       // $grid.infinitescroll({

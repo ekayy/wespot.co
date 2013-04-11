@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   private
   def build_default_place
-    build_place
+    self.build_place
     true
   end
 end

@@ -1,7 +1,7 @@
 <div id="place-nav">
   <div id="place-title">
-    <%# image_tag 'http://3.bp.blogspot.com/-2nAmwxeinfk/UKCySCrZ_RI/AAAAAAAANYo/IN1YKIb_vdY/s1600/izakaya+bar+drinks.jpg' %>
-    <h1><%= link_to @place.name, place_path %></h1>
+    <%= image_tag 'http://www.izakayamoku.com/images/Logo_Izakaya_blk_lg.jpg' %>
+    <h1><%# link_to @place.name, place_path %></h1>
   </div>
   <nav id="place-links">
     <ul class="place-main">
@@ -16,8 +16,30 @@
 
     <ul class="place-contact">
       <li><a href ="#">(408) 355-3586</a></li>
-      <li><a href ="#">1470 38th Ave</a></li>
-      <li><a href ="#">Hours</a></li>
+      <li><a href ="#"><address>1470 38th Ave</address></a></li>
+      <li><a href ="#">Hours</a>
+        <table>
+          <tbody>
+            <% (-1..5).each do |i| %>
+            <tr>
+              <td style="width:35%;"><%= ApplicationHelper::WeekDay[i+1] %></td>
+
+                <td><% if @place.business_hours[i].open_time.present? %>
+                <%= @place.business_hours[i].open_time.strftime("%l:%M%p") %>
+                <%else%>
+                Closed
+                <%end%> -
+              <% if @place.business_hours[i].close_time.present? %>
+                <%= @place.business_hours[i].close_time.strftime("%l:%M%p") %>
+                <%else%>
+                Closed
+                <%end%></td>
+
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </li>
     </ul>
 
     <p>Accepts Visa, MasterCard, Amex.</p>

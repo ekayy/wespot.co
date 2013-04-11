@@ -21,6 +21,21 @@
     </div>
   </div>
 
+<label>Opening Hours</label>
+<table>
+  <tbody>
+  <% @place.business_hours.each_with_index do |hour, index| %>
+    <%= f.simple_fields_for :business_hours, hour do |b| %>
+      <tr>
+        <td><%= ApplicationHelper::WeekDay[index] %></td>
+        <td><%= b.input :open_time, :as => :hour, :label => false %></td>
+        <td><%= b.input :close_time, :as => :hour, :label => false %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+
   <%= f.button :submit, "Customize" %>
 
 <% end %>

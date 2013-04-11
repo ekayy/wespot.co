@@ -5,13 +5,13 @@
   width: device-width;
 }
 
-.navbarfix {position: fixed;}
+.navbarfix {}
 
 /* universal */
 
 body {
   font-family: 'Open Sans', sans-serif;
-  padding-top: 40px;
+  position:relative;
 }
 
 .wrapper {
@@ -99,7 +99,7 @@ p {
 
 /* Place Navigation Menu */
 #place-nav {
-  position: fixed;
+  position: absolute;
   width:250px;
   top:40px;
   background-color: #000;
@@ -123,7 +123,7 @@ p {
       padding: 0;
       list-style: none;
       li {
-        padding: 5px 10px;
+        padding: 0px 10px;
         a {
           text-decoration: none;
           text-align:center;
@@ -142,7 +142,7 @@ p {
     }
   }
   .place-info {
-    padding: 35px 42px 25px;
+    padding: 35px 20px 25px;
     ul.place-contact {
       margin: 0;
       padding: 0;
@@ -152,7 +152,6 @@ p {
         a {
           color:#fff;
           font-size:14px;
-          padding: 0 10px;
         }
       }
     }
@@ -300,10 +299,66 @@ button {
 @media (min-width: 1200px) {  }
 
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {  }
+@media (min-width: 768px) and (max-width: 1279px) {
+  #main {
+    top: 20px;
+    overflow:hidden;
+    height:100%;
+    margin-left: 260px;
+    position:relative;
+    #grid {
+      top: 20px;
+      float:left;
+      width:100%;
+      .grid-item {
+        float: left;
+        padding: 1%;
+        // width:200px;
+        width:29%;
+        // margin: 0 7px 15px;
+        margin: .5%;
+        background:white;
+        box-shadow:  0 1px 3px rgba(34,25,25,0.4);
+        .caption {
+          color: #8c7e7e;
+          padding: 5px 0 0 5px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {  }
+@media (max-width: 767px) {
+  #main {
+    top: 20px;
+    overflow:hidden;
+    height:100%;
+    margin-left: 260px;
+    position:relative;
+    #grid {
+      top: 20px;
+      float:left;
+      width:100%;
+      .grid-item {
+        float: left;
+        padding: 1%;
+        // width:200px;
+        width:45%;
+        // margin: 0 7px 15px;
+        margin: .5%;
+        background:white;
+        box-shadow:  0 1px 3px rgba(34,25,25,0.4);
+        .caption {
+          color: #8c7e7e;
+          padding: 5px 0 0 5px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
