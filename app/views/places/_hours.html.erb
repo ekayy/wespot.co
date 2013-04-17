@@ -5,12 +5,12 @@
       <td style="width:35%;"><%= ApplicationHelper::WeekDay[i] %></td>
 
         <td><% if @place.business_hours[i].open_time.present? %>
-        <%= @place.business_hours[i].open_time.strftime("%l:%M%P") %> -
+        <%= @place.business_hours[i].open_time.strftime("%l:%M%P") if @place.business_hours[i].open_time %> -
         <%else%>
         Closed
         <%end%>
       <% if @place.business_hours[i].close_time.present? %>
-        <%= @place.business_hours[i].close_time.strftime("%l:%M%P") %>
+        <%= @place.business_hours[i].close_time.strftime("%l:%M%P") if @place.business_hours[i].close_time %>
         <%else%>
         <%end%>
       </td>
