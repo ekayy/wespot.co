@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   before_filter :authenticate_user!, only: ['new','create','edit','update', 'admin']
-  caches_page :show, :if => Proc.new { |c| c.request.format.json? }
-  # caches_action :show
+  # caches_page :show, :if => Proc.new { |c| c.request.format.json? }
+  caches_action :show, :layout => false
   # layout :false, :only => [:show]
 
   def edit

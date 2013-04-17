@@ -5,7 +5,7 @@
     <!-- <div id="coverphoto"></div> -->
 
     <div id="grid">
-      <% cache do %>
+
       <% for instagram in @instagram %>
       <div class="grid-item">
         <%= link_to image_tag(instagram.images.standard_resolution.url), "#{instagram.images.standard_resolution.url}" %>
@@ -13,7 +13,7 @@
           <%= instagram.caption.text %>
         </div>
       </div>
-      <% end %>
+
       <% end %>
     </div>
 
