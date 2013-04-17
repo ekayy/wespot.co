@@ -1,0 +1,20 @@
+<table>
+  <tbody>
+    <% (0..6).each do |i| %>
+    <tr>
+      <td style="width:35%;"><%= ApplicationHelper::WeekDay[i] %></td>
+
+        <td><% if @place.business_hours[i].open_time.present? %>
+        <%= @place.business_hours[i].open_time.strftime("%l:%M%P") %> -
+        <%else%>
+        Closed
+        <%end%>
+      <% if @place.business_hours[i].close_time.present? %>
+        <%= @place.business_hours[i].close_time.strftime("%l:%M%P") %>
+        <%else%>
+        <%end%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

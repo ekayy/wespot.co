@@ -1,14 +1,14 @@
 <% content_for :nav do %>
   <%= render 'nav' %>
 
-<div class="wrapper">
+<div id="main" style="background:#fff;">
   <h1>Menus</h1>
 
-<ul class="nav nav-pills">
+<!-- <ul class="nav nav-pills">
   <% @menus.each do |menu| %>
     <li><a href="#<%=menu.id%>" data-toggle="tab"><%= menu.name %></a></li>
   <% end %>
-</ul>
+</ul> -->
 
   <% @menus.each do |menu| %>
     <% menu.menu_categories.each do |category| %>

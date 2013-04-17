@@ -1,5 +1,5 @@
 class Place < ActiveRecord::Base
-  attr_accessible :name, :instagram_tag, :coverphoto, :remote_coverphoto_url, :coverphoto_cache, :subdomain, :menus_attributes, :business_hours_attributes
+  attr_accessible :name, :instagram_tag, :coverphoto, :remote_coverphoto_url, :coverphoto_cache, :subdomain, :menus_attributes, :business_hours_attributes, :address, :phone
   validates :user_id, presence: true
   # validates_uniqueness_of :subdomain
 
@@ -15,7 +15,7 @@ class Place < ActiveRecord::Base
   private
   def build_hours
     (0..6).each do |index|
-      self.business_hours.build(:day => index)
+      self.business_hours.build
     end
     true
   end

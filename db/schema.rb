@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409110517) do
+ActiveRecord::Schema.define(:version => 20130412025217) do
 
   create_table "business_hours", :force => true do |t|
     t.integer "place_id"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(:version => 20130409110517) do
     t.string   "instagram_tag"
     t.string   "coverphoto"
     t.string   "subdomain"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "phone"
   end
 
   create_table "users", :force => true do |t|

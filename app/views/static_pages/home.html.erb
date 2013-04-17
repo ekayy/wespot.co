@@ -1,16 +1,60 @@
-<h2>Give your restaurant website an identity of its own.</h2>
+<% content_for :fluid do %>
+<div id="home">
+  <div class='container'>
+<section id="intro">
 
-<button>Create website now</button>
-<p>Free trial, low monthly payments.</p>
+<h1>Build your mobile-optimized restaurant website!</h1>
+<h2>Showcase your menus and social media feeds online.</h2>
 
-<p>Don't spend thousands on websites.</p>
+<div id="action">
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
-<ul>
-  <li>Display your social media feeds.</li>
-  <li>Post your menus online.</li>
-  <li>Promote phone orders and online reservations with mobile optimized site.</li>
-  <li>Use your own domain or transfer your existing one.</li>
-  <li>Integrate online reservation systems.</li>
-</ul>
+  <div><%= f.input :email, :placeholder => 'Email', :label => false, :autocomplete => 'off' %></div>
+
+  <div><%= f.input :password, :placeholder => 'Password', :label => false, :autocomplete => 'off' %></div>
+
+  <%= f.submit 'Create website now' %>
+  <p>Free trial. Setup in minutes.</p>
+<% end %>
+</div>
+</section>
+
+<section>
+<article>
+  <h3>Display your social media feeds.</h3>
+  <p>Keep your website updated with beautiful photos from customers that use Instagram.</p>
+</article>
+<article>
+  <h3>Feature your menus.</h3>
+  <p>Promote phone orders and reservations with online menus.</p>
+</article>
+<article>
+  <h3>Mobile responsive.</h3>
+  <p>Optimize your web presence for mobile, tablet, and other devices.</p>
+</article>
+
+</section>
+
+<section>
+  <h2>Give your restaurant web presence instant credibility and usability.</h2>
+</section>
 
 
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <small>
+        <%= link_to 'weSpot', root_path %>
+      </small>
+      <nav>
+        <ul>
+          <li><%= link_to "About",   '#' %></li>
+          <li><%= link_to "Contact", '#' %></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+<% end %>

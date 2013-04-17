@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   before_filter :authenticate_user!, only: ['new','create','edit','update', 'admin']
   caches_page :show, :if => Proc.new { |c| c.request.format.json? }
+  # caches_action :show
   # layout :false, :only => [:show]
 
   def edit
@@ -9,9 +10,10 @@ class PlacesController < ApplicationController
   end
 
   def update
-    @place = Place.find(params[:id])
+    @user = current_user
+    @place = current_user.place
     if @place.update_attributes(params[:place])
-      render 'show'
+      render 'edit'
     else
       render 'edit'
     end
@@ -35,7 +37,7 @@ class PlacesController < ApplicationController
 
   def menu
     @place = Place.find(params[:id])
-    @menus = Menu.all
+    @menus = @place.menus
   end
 
   def embed

@@ -49,11 +49,13 @@ jQuery(function($) {
       $.getJSON(url, this.toTemplate);
     },
     toTemplate: function(photos) {
-      var template = Handlebars.compile($('#grid-template').html()),
-        $grid = $('#grid'),
+      // var template = Handlebars.compile($('#grid-template').html()),
+      var $grid = $('#grid'),
         columns;
-
-      $grid.html(template(photos)).imagesLoaded( function(){
+      // $grid.html(template(photos)).imagesLoaded(
+      $grid.imagesLoaded( function(){
+        $('#grid').show();
+        $('#loading').hide();
         $grid.isotope({
           resizable: false,
           masonry: { columnWidth: $grid.width() / columns },

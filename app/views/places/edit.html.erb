@@ -8,6 +8,8 @@
 
   <%= f.input :name, label: 'Restaurant Name' %>
   <%= f.input :instagram_tag %>
+  <%= f.input :address %>
+  <%= f.input :phone %>
 
   <div class="control-group">
     <%= f.label :coverphoto, "Cover Photo", :class => 'control-label' %>
@@ -26,16 +28,28 @@
   <tbody>
   <% @place.business_hours.each_with_index do |hour, index| %>
     <%= f.simple_fields_for :business_hours, hour do |b| %>
+      <%= b.hidden_field :day, :value => index %>
       <tr>
-        <td><%= ApplicationHelper::WeekDay[index] %></td>
-        <td><%= b.input :open_time, :as => :hour, :label => false %></td>
-        <td><%= b.input :close_time, :as => :hour, :label => false %></td>
+        <td><strong><%= ApplicationHelper::WeekDay[index] %></strong></td>
+        <td><%= b.input_field :open_time, :as => :hour, :label => false %> to
+        <%= b.input_field :close_time, :as => :hour, :label => false %></td>
+        <td><span class="split-toggle"><%= link_to "Add Split Hours", '#' %></span></td>
+
       </tr>
     <% end %>
+
   <% end %>
   </tbody>
 </table>
 
-  <%= f.button :submit, "Customize" %>
+  <%= f.submit "Customize" %>
 
 <% end %>
+
+<script>
+  $('.split-toggle').click(function(){
+    var dataid = $('a.add_fields').attr('data-id');
+    var id = 'place_business_hours_attributes_'+dataid+'_open_time';
+    $('#'+this.id).hide();
+  });
+</script>

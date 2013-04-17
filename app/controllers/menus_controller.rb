@@ -8,17 +8,18 @@ class MenusController < ApplicationController
 
   def create
     @place = current_user.place
-    @menu = @place.menus.build(params[:menu])
+    @menu = @place.menus.new(params[:menu])
     if @menu.save
       flash[:success] = "Menu created!"
-      render 'edit'
+      redirect_to :back
     else
       render 'new'
     end
   end
 
   def edit
-    @menu = Menu.find(params[:id])
+    @place = current_user.place
+    @menu = @place.menus.find(params[:id])
     @dish = Dish.new
     # @menu = @menu.menus.build
     @menu_category = MenuCategory.new
@@ -26,7 +27,8 @@ class MenusController < ApplicationController
   end
 
   def update
-    @menu = Menu.find(params[:id])
+    @place = current_user.place
+    @menu = @place.menus.find(params[:id])
     if @menu.update_attributes(params[:menu])
       render 'show'
     else
@@ -40,7 +42,8 @@ class MenusController < ApplicationController
 
 # action for dashboard
   def index
-    @menus = Menu.all
+    @place = current_user.place
+    @menus = @place.menus.all
     @menu = Menu.new
   end
 

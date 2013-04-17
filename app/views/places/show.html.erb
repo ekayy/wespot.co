@@ -1,22 +1,12 @@
 <% provide(:title, @place.name) %>
 
-<body style="<%# show_user_bg %>">
+<!-- <body style="<%# show_user_bg %>"> -->
 
-<% content_for :nav do %>
-  <%= render 'nav' %>
+  <% content_for :fluid do %>
+    <%= render 'nav' %>
+    <%= render 'instagram' %>
+  <% end %>
 
-<script>
-$(function(){
-  var $content = $('#content');
 
-  $content.imagesLoaded( function(){
-    $content.isotope({
-      itemSelector : '.dish'
-    });
-  });
-});
-</script>
 
-<% end %>
 
-  <%= render 'instagram' %>
