@@ -16,6 +16,13 @@ body {
   background:#f3f3f3;
   height:100%;
 }
+.container {
+  margin-top:40px;
+}
+.menu {
+  padding-left:20px;
+  padding-right:20px;
+}
 
 .navbar {
   margin-bottom:0;
@@ -129,12 +136,14 @@ button, .cta, input[type="submit"] {
   z-index:4;
   float:left;
   width:250px;
-  padding-top:64px;
+  padding:64px 0;
   background-color: #000;
   top: 0;
   bottom:0;
   color:#fff;
-  position:fixed;
+  // position:fixed;
+  margin-left:25px;
+  opacity:.9;
   #place-title {
     h1 {
       margin: 0;
@@ -201,11 +210,9 @@ button, .cta, input[type="submit"] {
   position:relative;
   #grid {
     top: 20px;
-    float:left;
     width:99%;
     margin-left:1%;
     .grid-item {
-      float: left;
       padding: 1%;
       // width:200px;
       width:21.75%;
@@ -323,9 +330,9 @@ button, .cta, input[type="submit"] {
 /* Home Page */
 #home {
   background: url('http://wallpaperscraft.com/image/background_black_white_wooden_surface_board_18564_1280x960.jpg') #c0c0c0 bottom;
-  background-size: cover;
-  padding-top: 140px;
-  height:340px;
+  // background-size: cover;
+  padding-top: 100px;
+  height:450px;
   section#intro {
     padding: 20px 0;
     h1 {
@@ -345,6 +352,7 @@ button, .cta, input[type="submit"] {
     }
   }
   section {
+    overflow:hidden;
     article {
       padding: 2%;
       display: block;
@@ -386,13 +394,40 @@ footer {
 }
 
 /* Large desktop */
-@media (min-width: 1200px) {  }
+@media (min-width: 1600px) {
+  body {padding:0;}
+  #main {
+    overflow:hidden;
+    height:100%;
+    margin-left: 250px;
+    position:relative;
+    #grid {
+      top: 20px;
+      float:left;
+      width:100%;
+      .grid-item {
+        float: left;
+        padding: 1%;
+        // width:200px;
+        width:16.5%;
+        // margin: 0 7px 15px;
+        margin: .5%;
+        background:white;
+        box-shadow:  0 1px 3px rgba(34,25,25,0.4);
+        .caption {
+          color: #8c7e7e;
+          padding: 5px 0 0 5px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 1279px) {
   body {padding: 0;}
   #main {
-    top: 20px;
     overflow:hidden;
     height:100%;
     margin-left: 250px;
@@ -418,22 +453,22 @@ footer {
       }
     }
   }
+  #home section article { width:100%;}
 }
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
   body {padding: 0;}
-  .navbar {margin:0;}
+  .navbar {margin:0; display:none;}
   #place-nav-bg {
     top:0px;
     bottom:0px;
     position: absolute;
     width:100%;
-    background-color: #000;
+    background-color: rgba(0,0,0,0.9);
   }
-  #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0; }
+  #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0;margin:0;background: none; opacity:1;}
   #main {
-    top: 20px;
     overflow:hidden;
     height:100%;
     margin-left: 0;
@@ -441,11 +476,9 @@ footer {
     width:100%;
     #grid {
       top: 20px;
-      float:left;
       width:100%;
       margin-left:2%;
       .grid-item {
-        float: left;
         padding: 2%;
         // width:200px;
         width:41%;
@@ -475,15 +508,24 @@ footer {
     height: 50px;
     line-height: 50px;
   }
+  #home section article { width:100%;}
 }
 
 
 /* Landscape phones and down */
 @media (max-width: 480px)  {
   body {padding: 0;}
-  #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0; }
+  #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0;margin:0; opacity:1;}
+  .navbar {margin:0; display:none;}
+  #place-nav-bg {
+    top:0px;
+    bottom:0px;
+    position: absolute;
+    width:100%;
+    background-color: rgba(0,0,0,0.9);
+  }
+  #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0;margin:0;background: none; }
   #main {
-    top: 20px;
     overflow:hidden;
     height:100%;
     margin-left: 0;
@@ -491,11 +533,9 @@ footer {
     width:100%;
     #grid {
       top: 20px;
-      float:left;
       width:100%;
       margin-left:2%;
       .grid-item {
-        float: left;
         padding: 4%;
         // width:200px;
         width:84%;
@@ -512,9 +552,8 @@ footer {
     }
   }
   .place-contact {
-    float:left;
-    width:50%;
   }
+  #home section article { width:100%;}
 }
 
 /* Iphone5 */

@@ -21,6 +21,12 @@
 
   <% end %>
 
+  <script>
+$(document).ready(function(){
+      $("body").backstretch('<%= raw @place.coverphoto.url.to_s %>');
+    });
+</script>
+
 <!--<script id="grid-template" type="text/x-handlebars-template">
 
   {{#each this}}
@@ -37,10 +43,6 @@
 </script>
 
 
-<script>
-$(document).ready(function(){
-      $("#coverphoto").backstretch('<%= raw @place.coverphoto.url.to_s %>');
-    });
-</script>
+
 
 <div id="grid" style="display:none;" data-json-url="<%= place_url(@place) %>">
