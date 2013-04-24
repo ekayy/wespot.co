@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
       @place = Place.find(params[:id])
     else
       @place = Place.find_by_subdomain!(request.subdomain)
-      @instagram = Instagram.tag_recent_media(@place.instagram_tag)
+      # @instagram = Instagram.tag_recent_media(@place.instagram_tag)
     end
     if @place.instagram_tag.present?
       @instagram = Instagram.tag_recent_media(@place.instagram_tag)
@@ -35,7 +35,11 @@ class PlacesController < ApplicationController
   end
 
   def menu
-    @place = Place.find(params[:id])
+    if params[:id]
+      @place = Place.find(params[:id])
+    else
+      @place = Place.find_by_subdomain!(request.subdomain)
+    end
     @menus = @place.menus
   end
 

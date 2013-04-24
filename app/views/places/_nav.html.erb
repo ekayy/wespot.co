@@ -2,13 +2,19 @@
 <div id="place-nav">
   <div id="place-title">
     <%# image_tag 'http://www.izakayamoku.com/images/Logo_Izakaya_blk_lg.jpg' %>
-    <h1><%= link_to @place.name, place_path %></h1>
+    <h1><%= link_to @place.name, root_url %></h1>
   </div>
   <nav id="place-links">
     <ul class="place-main">
+      <% if params[:id].present? %>
       <li><a href ="#" id="toggleGrid">Photo</a></li>
-      <li><%= link_to 'Menu', menu_place_path %></li>
+      <li><%= link_to 'Menu', menu_place_path(@place) %></li>
       <li><a href ="#">Contact</a></li>
+      <% else %>
+      <li><a href ="#" id="toggleGrid">Photo</a></li>
+      <li><%= link_to 'Menu', root_url+'menu' %></li>
+      <li><a href ="#">Contact</a></li>
+      <% end %>
     </ul>
   </nav>
 
