@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
     @user = current_user
     @place = current_user.place
     if @place.update_attributes(params[:place])
-      render 'edit'
+      render 'show'
     else
       render 'edit'
     end
@@ -35,6 +35,15 @@ class PlacesController < ApplicationController
   end
 
   def menu
+    if params[:id]
+      @place = Place.find(params[:id])
+    else
+      @place = Place.find_by_subdomain!(request.subdomain)
+    end
+    @menus = @place.menus
+  end
+
+  def photo
     if params[:id]
       @place = Place.find(params[:id])
     else

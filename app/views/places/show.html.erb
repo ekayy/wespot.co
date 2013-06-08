@@ -1,12 +1,22 @@
 <% provide(:title, @place.name) %>
 
-<!-- <body style="<%# show_user_bg %>"> -->
+<script>
+  $(document).ready(function(){
+    $("body").backstretch('<%= raw @place.coverphoto.url.to_s %>');
+  });
+</script>
+
+<!-- <body style="<%= show_user_bg %>"> -->
 
   <% content_for :fluid do %>
     <%= render 'nav' %>
     <%= render 'instagram' %>
   <% end %>
 
-
+<script>
+//   $(document).ready(function(){
+//     $("body").backstretch('<%= raw @place.coverphoto.url.to_s %>');
+//   });
+// </script>
 
 

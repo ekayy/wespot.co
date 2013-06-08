@@ -4,7 +4,7 @@
 
     <!-- <div id="coverphoto"></div> -->
 
-    <div id="grid">
+    <div id="grid" style="display:none;">
 
       <% for instagram in @instagram %>
       <div class="grid-item">
@@ -21,28 +21,24 @@
 
   <% end %>
 
-  <script>
-$(document).ready(function(){
-      $("body").backstretch('<%= raw @place.coverphoto.url.to_s %>');
-    });
-</script>
+
 
 <!--<script id="grid-template" type="text/x-handlebars-template">
 
-  {{#each this}}
-    <div class="grid-item">
-      <a href="{{images.standard_resolution.url}}">
-        <img src="{{images.standard_resolution.url}}" />
-      </a>
-      <div class="caption">
-        {{caption.text}}
-      </div>
-    </div>
-  {{/each}}
+//   {{#each this}}
+//     <div class="grid-item">
+//       <a href="{{images.standard_resolution.url}}">
+//         <img src="{{images.standard_resolution.url}}" />
+//       </a>
+//       <div class="caption">
+//         {{caption.text}}
+//       </div>
+//     </div>
+//   {{/each}}
 
-</script>
-
-
+// </script>
 
 
-<div id="grid" style="display:none;" data-json-url="<%= place_url(@place) %>">
+
+
+// <div id="grid" style="display:none;" data-json-url="<%= place_url(@place) %>">-->

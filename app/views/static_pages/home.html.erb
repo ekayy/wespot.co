@@ -1,47 +1,43 @@
 <% content_for :fluid do %>
 <div id="home">
-  <div class='container'>
-<section id="intro">
+  <section id="intro">
 
-<h1>Build your mobile-optimized restaurant website!</h1>
-<h2>Showcase your menus and social media feeds online.</h2>
+  <h1>Build your mobile-optimized restaurant website!</h1>
+  <h2>Showcase your menus and social media feeds online.</h2>
 
-<div id="action">
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div id="action">
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.input :email, :placeholder => 'Email', :label => false, :autocomplete => 'off' %></div>
+    <div><%= f.input :email, :placeholder => 'Email', :label => false, :autocomplete => 'off' %></div>
 
-  <div><%= f.input :password, :placeholder => 'Password', :label => false, :autocomplete => 'off' %></div>
+    <div><%= f.input :password, :placeholder => 'Password', :label => false, :autocomplete => 'off' %></div>
 
-  <%= f.submit 'Create website now' %>
-  <p>Free trial. Setup in minutes.</p>
-<% end %>
-</div>
-</section>
-
-<section>
-<article>
-  <h3>Display your social media feeds.</h3>
-  <p>Keep your website updated with beautiful photos from customers that use Instagram.</p>
-</article>
-<article>
-  <h3>Feature your menus.</h3>
-  <p>Promote phone orders and reservations with online menus.</p>
-</article>
-<article>
-  <h3>Mobile responsive.</h3>
-  <p>Optimize your web presence for mobile, tablet, and other devices.</p>
-</article>
-
-</section>
-
-<section>
-  <h2>Give your restaurant web presence instant credibility and usability.</h2>
-</section>
-
-
+    <%= f.submit 'Create website now' %>
+    <p>Free trial. Setup in minutes.</p>
+  <% end %>
   </div>
+  </section>
+
+  <section id="grey">
+    <article>
+      <h3>Display your social media feeds.</h3>
+      <p>Keep your website updated with beautiful photos from customers that use Instagram.</p>
+    </article>
+    <article>
+      <h3>Feature your menus.</h3>
+      <p>Promote phone orders and reservations with online menus.</p>
+    </article>
+    <article>
+      <h3>Mobile responsive.</h3>
+      <p>Optimize your web presence for mobile, tablet, and other devices.</p>
+    </article>
+  </section>
+
+  <section id="white">
+    <h2>Give your restaurant web presence instant credibility and usability.</h2>
+  </section>
+
   <footer class="footer">
     <div class="container">
       <small>

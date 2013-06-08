@@ -143,9 +143,9 @@ button, .cta, input[type="submit"] {
   color:#fff;
   // position:fixed;
   margin-left:25px;
-  opacity:.9;
   #place-title {
     h1 {
+      font-size:2em;
       margin: 0;
       text-align:center;
       padding: 20px 10px;
@@ -329,10 +329,10 @@ button, .cta, input[type="submit"] {
 
 /* Home Page */
 #home {
-  background: url('http://wallpaperscraft.com/image/background_black_white_wooden_surface_board_18564_1280x960.jpg') #c0c0c0 bottom;
+  background: url('https://s3-us-west-1.amazonaws.com/wespot/bg_wood.jpg') #c0c0c0 bottom;
   // background-size: cover;
   padding-top: 100px;
-  height:450px;
+  height:350px;
   section#intro {
     padding: 20px 0;
     h1 {
@@ -350,6 +350,13 @@ button, .cta, input[type="submit"] {
         color:white;
       }
     }
+  }
+  section#grey {
+    padding:88px 0;
+  }
+  section#white {
+    background:#fff;
+    padding:88px 0;
   }
   section {
     overflow:hidden;
@@ -496,6 +503,7 @@ footer {
   }
 
   .cta {
+    background-color: rgba(200, 55, 55, 0.85);
     text-align:center;
     position: fixed;
     z-index: 999999;
