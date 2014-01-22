@@ -84,7 +84,6 @@ p {
 /* Forms */
 .controls input {
   padding: 10px 20px;
-  width:260px;
 }
 .control-group label {
   // font-size: 15px;
@@ -329,7 +328,7 @@ button, .cta, input[type="submit"] {
 
 /* Home Page */
 #home {
-  background: url('https://s3-us-west-1.amazonaws.com/wespot/bg_wood.jpg') #c0c0c0 bottom;
+  background: url('https://s3-us-west-1.amazonaws.com/wespot/bg_wood.jpg') #fff bottom;
   // background-size: cover;
   padding-top: 100px;
   height:350px;
@@ -351,23 +350,31 @@ button, .cta, input[type="submit"] {
       }
     }
   }
-  section#grey {
-    padding:88px 0;
+  section {
+    padding:48px 0;
+    article {
+      text-align:center;
+    }
   }
-  section#white {
-    background:#fff;
-    padding:88px 0;
+  .red {
+    background: #000;
+    padding:70px 0;
+    h3 {
+      color:#fff;
+    }
+    button {
+      margin-top:30px;
+        a {
+        color:#fff;
+        text-decoration:none;
+      }
+    }
   }
   section {
+   text-align:center;
     overflow:hidden;
     article {
-      padding: 2%;
-      display: block;
-      float: left;
-      width: 29%;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      text-align: center;
+    
       h3 {
         font-size:1.5em;
       }
@@ -522,7 +529,7 @@ footer {
 
 /* Landscape phones and down */
 @media (max-width: 480px)  {
-  body {padding: 0;}
+  body {padding: 0; padding-bottom: 50px;}
   #place-nav {position:relative; text-align:center; width:100%; left:0; padding:40px 0;margin:0; opacity:1;}
   .navbar {margin:0; display:none;}
   #place-nav-bg {
